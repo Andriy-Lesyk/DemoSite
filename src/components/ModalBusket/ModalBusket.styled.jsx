@@ -3,10 +3,11 @@ import { AiOutlineMinusCircle } from 'react-icons/ai';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { SlBasket } from 'react-icons/sl';
 import { AiFillDelete } from 'react-icons/ai';
+import { TbMoodSad2 } from 'react-icons/tb';
 
 export const Modal = styled.div`
   position: relative;
-  width: 800px;
+  width: 750px;
   border-radius: 10px;
   background-color: white;
   padding: 40px;
@@ -16,6 +17,10 @@ export const BusketItem = styled.li`
   display: grid;
   grid-template-columns: 200px 150px 40px 65px 65px 40px 50px 50px 50px;
   align-self: center;
+  &:not(:last-child) {
+    border-bottom: 1px solid #dedcd7;
+    margin-top: 5px;
+  }
 `;
 export const TotalPrice = styled.span`
   display: flex;
@@ -93,6 +98,11 @@ export const Title = styled.h1`
 export const TitleIcon = styled(SlBasket)`
   width: 30px;
   height: 30px;
+  margin-left: 10px;
+`;
+export const TitleIconSad = styled(TbMoodSad2)`
+  width: 40px;
+  height: 40px;
   margin-left: 10px;
 `;
 export const BusketBtn = styled.button`

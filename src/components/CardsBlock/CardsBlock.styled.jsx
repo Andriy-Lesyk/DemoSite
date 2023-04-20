@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { AiOutlineLike } from 'react-icons/ai';
 
 export const Section = styled.section`
   background-color: #f2f5f5;
@@ -73,7 +74,7 @@ export const CardName = styled.h3`
 
 export const Price = styled.p`
   margin: 0;
-  margin-top: 15px;
+  margin: 15px 10px 0;
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 14px;
@@ -88,6 +89,7 @@ export const PriceMeaning = styled.p`
   pointer-events: none;
 `;
 export const CardBtn = styled.button`
+  position: relative;
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -106,4 +108,32 @@ export const CardBtn = styled.button`
     cursor: pointer;
     background-color: #bac423;
   }
+`;
+export const Count = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  right: -10px;
+  top: -4px;
+`;
+export const HeartIcon = styled(AiOutlineLike)`
+  width: 25px;
+  height: 25px;
+  fill: #6d6e6d;
+  flex-grow: 1;
+  margin-top: 5px;
+  &:focus,
+  &:hover {
+    scale: 1.2;
+  }
+`;
+export const PriceHeartBox = styled.div`
+  display: flex;
+  align-items: baseline;
+  width: 200px;
 `;

@@ -106,6 +106,18 @@ export const Count = styled.div`
   height: 20px;
   border-radius: 50%;
   background-color: red;
-  right: -10px;
+  right: -7px;
+  top: -4px;
+`;
+export const CountHeart = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  right: 58px;
   top: -4px;
 `;

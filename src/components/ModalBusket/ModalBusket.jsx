@@ -19,6 +19,7 @@ import {
   TitleBox,
   BusketBtn,
   DeleteIcon,
+  TitleIconSad,
 } from './ModalBusket.styled';
 
 function ModalBusket() {
@@ -56,10 +57,17 @@ function ModalBusket() {
   return (
     <Overlay onClick={handleBackdropClick}>
       <Modal>
-        <TitleBox>
-          <Title>Кошик</Title>
-          <TitleIcon />
-        </TitleBox>
+        {busketData.length > 0 ? (
+          <TitleBox>
+            <Title>Кошик</Title>
+            <TitleIcon />
+          </TitleBox>
+        ) : (
+          <TitleBox>
+            <Title>Кошик пустий</Title>
+            <TitleIconSad />
+          </TitleBox>
+        )}
         <BusketList>
           {busketData.map(({ name, img, price, count }, i) => (
             <BusketItem key={uuidv4()}>
@@ -69,19 +77,20 @@ function ModalBusket() {
               <PriceMeaning> {price * count}₴</PriceMeaning>
               <Price>Кількість:</Price>
               <PriceMeaning>{count}</PriceMeaning>
-              <IconBtn
-                onClick={() => {
-                  CountPlus(i);
-                }}
-              >
-                <PlusIcon />
-              </IconBtn>
+
               <IconBtn
                 onClick={() => {
                   CountMinus(i);
                 }}
               >
                 <MinesIcon />
+              </IconBtn>
+              <IconBtn
+                onClick={() => {
+                  CountPlus(i);
+                }}
+              >
+                <PlusIcon />
               </IconBtn>
               <IconBtn onClick={() => handleDeleteBusketItem(i)}>
                 <DeleteIcon />

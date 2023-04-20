@@ -1,8 +1,4 @@
 import styled from '@emotion/styled';
-import { AiFillHeart } from 'react-icons/ai';
-import { MdTrolley } from 'react-icons/md';
-import { GiAbstract050 } from 'react-icons/gi';
-
 export const Head = styled.header``;
 
 export const SectionTop = styled.section`
@@ -18,6 +14,10 @@ export const Inform = styled.span`
     color: #e5eb34;
     &:not(:last-child) {
       margin-right: 40px;
+    }
+    &:hover,
+    &:focus {
+      border-bottom: 2px solid #e5eb34;
     }
   }
   @media screen and (max-width: 1280px) {

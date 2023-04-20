@@ -11,11 +11,18 @@ import {
   Price,
   PriceMeaning,
   CardBtn,
+  HeartIcon,
+  PriceHeartBox,
 } from './CardsBlock.styled';
 
 function CardsBlock() {
-  const { data, showCardModal, handleShowModalCard, handleAddBusketData } =
-    useCont();
+  const {
+    data,
+    showCardModal,
+    handleShowModalCard,
+    handleAddBusketData,
+    handleAddHeartItem,
+  } = useCont();
 
   return (
     <Section>
@@ -25,8 +32,12 @@ function CardsBlock() {
             <CardItem key={id} onClick={e => handleShowModalCard(e, i)}>
               <CardImg src={img} />
               <CardName>{name}</CardName>
-              <Price>Ціна:</Price>
-              <PriceMeaning>{price}₴</PriceMeaning>
+              <PriceHeartBox>
+                <Price>Ціна:</Price>
+                <PriceMeaning>{price}₴</PriceMeaning>
+                <HeartIcon onClick={() => handleAddHeartItem(i)} />
+              </PriceHeartBox>
+
               <CardBtn onClick={() => handleAddBusketData(i)}>
                 Додати в кошик
               </CardBtn>
