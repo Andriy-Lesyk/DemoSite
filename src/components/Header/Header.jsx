@@ -56,7 +56,6 @@ function Header() {
                 onChange={handleFilter}
                 onClick={handleCloseBurgerMenu}
               />
-              {/* <BurgerMenuIcon onClick={handleShowBurgerMenu} /> */}
 
               {/* <InformBoxForTablet>
               <Inform>КОНТАКТИ</Inform>
