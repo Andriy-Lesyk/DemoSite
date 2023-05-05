@@ -11,6 +11,7 @@ import {
   HeartName,
   HeartImg,
   HeartDescript,
+  ModalWrapper,
 } from './ModalHeart.styled';
 
 function ModalHeart() {
@@ -35,23 +36,25 @@ function ModalHeart() {
   };
   return (
     <Overlay onClick={handleBackdropClick}>
-      <Modal>
-        <CloseIcon onClick={closeHeartModal} />
-        <Title>Закладки</Title>
-        <HeartList>
-          {heartData.map(({ name, img }, i) => (
-            <HearttItem key={uuidv4()}>
-              <HeartName>{name}</HeartName>
-              <HeartImg src={img} />
-              <HeartDescript>Характеристики</HeartDescript>
-              <DeleteIcon
-                onClick={() => handleDeleteHeartItem(i)}
-                style={{ display: 'flex', alignSelf: 'center' }}
-              />
-            </HearttItem>
-          ))}
-        </HeartList>
-      </Modal>
+      <ModalWrapper>
+        <Modal>
+          <CloseIcon onClick={closeHeartModal} />
+          <Title>Закладки</Title>
+          <HeartList>
+            {heartData.map(({ name, img }, i) => (
+              <HearttItem key={uuidv4()}>
+                <HeartName>{name}</HeartName>
+                <HeartImg src={img} />
+                <HeartDescript>Характеристики</HeartDescript>
+                <DeleteIcon
+                  onClick={() => handleDeleteHeartItem(i)}
+                  style={{ display: 'flex', alignSelf: 'center' }}
+                />
+              </HearttItem>
+            ))}
+          </HeartList>
+        </Modal>
+      </ModalWrapper>
     </Overlay>
   );
 }

@@ -13,6 +13,9 @@ export const MainText = styled.span`
   font-size: 24px;
   color: #e5eb34;
   line-height: 0;
+  @media screen and (max-width: 768px) {
+    font-size: 22px;
+  }
 `;
 export const Text = styled.span`
   font-family: 'Roboto';
@@ -20,12 +23,18 @@ export const Text = styled.span`
   font-weight: 300;
   font-size: 14px;
   color: #e5eb34;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 export const LogBox = styled.div`
   width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    width: 135px;
+  }
 `;
 export const LogoTopBox = styled.div`
   display: flex;

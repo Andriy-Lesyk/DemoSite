@@ -8,13 +8,29 @@ export const useCont = () => {
 };
 
 export const ContextProvider = ({ children }) => {
-  const [filter, setFilter] = useState('');
+  const [data, setData] = useState(dat);
   const [showCardModal, setShowCardModal] = useState(false);
   const [modalData, setModalData] = useState([]);
   const [busketData, setBusketData] = useState([]);
   const [showBusketModal, setShowBusketModal] = useState(false);
   const [heartData, setHeartData] = useState([]);
   const [showHeartModal, setShowHeartModal] = useState(false);
+  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
+  const [clickItem, setClickItem] = useState(null);
+  const [showSideBar, setShowSideBar] = useState(false);
+  const [arrTypesOfGoods, setArrTypesOfGoods] = useState([
+    'Портативні зарядні пристрої',
+    'Інвертори',
+    'Портативні електростанції',
+    'Контролери',
+  ]);
+
+  const handleToggleSideBar = () => setShowSideBar(!showSideBar);
+
+  const handleCloseSideBar = () => setShowSideBar(false);
+
+  const handleShowBurgerMenu = () => setShowBurgerMenu(!showBurgerMenu);
+  const handleCloseBurgerMenu = () => setShowBurgerMenu(false);
 
   const openCardModal = () => setShowCardModal(true);
   const closeCardModal = () => setShowCardModal(false);
@@ -25,8 +41,17 @@ export const ContextProvider = ({ children }) => {
   const openHeartModal = () => setShowHeartModal(true);
   const closeHeartModal = () => setShowHeartModal(false);
 
+  let filter;
+
   const handleFilter = e => {
-    setFilter(e.currentTarget.value);
+    filter = e.currentTarget.value;
+    let dataFil = dat;
+    if (filter) {
+      dataFil = data.filter(x => x.name.includes(filter.toUpperCase()));
+      setData(dataFil);
+    } else {
+      setData(dat);
+    }
   };
 
   const handleShowModalCard = (e, i) => {
@@ -60,9 +85,14 @@ export const ContextProvider = ({ children }) => {
   };
 
   const handleDeleteBusketItem = i => {
-    if (window.confirm('Дійсно хочете видалити товар?')) {
+    if (window.confirm('Ви дійсно хочете видалити товар?')) {
       const busk = busketData.filter(x => x !== busketData[i]);
       setBusketData(busk);
+    }
+  };
+  const handleCleanBusket = () => {
+    if (window.confirm('Ви бажаєте очистити кошик?')) {
+      setBusketData([]);
     }
   };
   const handleAddHeartItem = i => {
@@ -77,14 +107,31 @@ export const ContextProvider = ({ children }) => {
     setHeartData(del);
   };
 
-  let data = dat;
-  filter && (data = dat.filter(x => x.name.includes(filter.toUpperCase())));
+  const handleFilterByType = i => {
+    const filter = dat.filter(x => Number(x.type) === i);
+    setData(filter);
+    setClickItem(i);
+    handleCloseSideBar();
+  };
+  const handleDenyFilter = () => {
+    setData(dat);
+    setClickItem(null);
+    handleCloseSideBar();
+  };
+  const handleFilterByTypeConst = i => {
+    const filter = dat.filter(x => Number(x.type) === i);
+    setData(filter);
+    setClickItem(i);
+  };
+  const handleDenyFilterConst = () => {
+    setData(dat);
+    setClickItem(null);
+  };
 
   return (
     <Context.Provider
       value={{
         handleFilter,
-        filter,
         data,
         showCardModal,
         handleShowModalCard,
@@ -106,6 +153,18 @@ export const ContextProvider = ({ children }) => {
         handleAddHeartItem,
         heartData,
         handleDeleteHeartItem,
+        showBurgerMenu,
+        handleShowBurgerMenu,
+        handleCloseBurgerMenu,
+        handleCleanBusket,
+        handleFilterByType,
+        handleDenyFilter,
+        clickItem,
+        showSideBar,
+        handleToggleSideBar,
+        handleFilterByTypeConst,
+        handleDenyFilterConst,
+        arrTypesOfGoods,
       }}
     >
       {children}

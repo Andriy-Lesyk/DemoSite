@@ -1,16 +1,28 @@
 import styled from '@emotion/styled';
 import { AiOutlineLike } from 'react-icons/ai';
 
-export const Section = styled.section`
-  background-color: #f2f5f5;
-`;
 export const CardsBox = styled.ul`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0;
-  padding-bottom: 50px;
+  background-color: #f2f5f5;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  gap: 30px;
+  padding: 30px;
   margin: 0;
+  @media screen and (max-width: 1450px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 1016px) {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+  }
+  @media screen and (max-width: 670px) {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  @media screen and (max-width: 360px) {
+    padding: 10px;
+  }
 `;
 export const CardItem = styled.li`
   @media screen and (max-width: 2000px) {
@@ -18,53 +30,27 @@ export const CardItem = styled.li`
     flex-direction: column;
     align-items: center;
     list-style-type: none;
-    width: 284px;
+    max-width: 284px;
     background-color: white;
     border-radius: 10px;
-    margin-top: 50px;
-    padding: 10px;
     padding-bottom: 30px;
-    &:not(:nth-child(4n)) {
-      margin-right: 50px;
-    }
-    &:hover {
-      cursor: pointer;
-    }
   }
-  @media screen and (max-width: 1482px) {
-    &:not(:nth-child(4n)) {
-      margin-right: 0;
-    }
-    &:not(:nth-child(3n)) {
-      margin-right: 50px;
-    }
-  }
-  @media screen and (max-width: 1127px) {
-    &:not(:nth-child(3n)) {
-      margin-right: 0;
-    }
-    &:not(:nth-child(2n)) {
-      margin-right: 50px;
-    }
-  }
-  @media screen and (max-width: 780px) {
-    &:not(:nth-child(2n)) {
-      margin-right: 30px;
-    }
-  }
-  @media screen and (max-width: 723px) {
-    &:not(:nth-child(2n)) {
-      margin-right: 0;
-    }
-  }
+`;
+export const ImgBox = styled.div`
+  width: 250px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 `;
 
 export const CardImg = styled.img`
   width: 250px;
-  height: 200px;
+  max-height: 200px;
   pointer-events: none;
 `;
 export const CardName = styled.h3`
+  text-align: center;
   margin: 20px 0 10px 0;
   font-family: 'Roboto';
   font-weight: 700;
@@ -137,3 +123,4 @@ export const PriceHeartBox = styled.div`
   align-items: baseline;
   width: 200px;
 `;
+export const Link = styled.a``;

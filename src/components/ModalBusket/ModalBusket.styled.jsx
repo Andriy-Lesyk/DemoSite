@@ -3,19 +3,31 @@ import { AiOutlineMinusCircle } from 'react-icons/ai';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { SlBasket } from 'react-icons/sl';
 import { AiFillDelete } from 'react-icons/ai';
-import { TbMoodSad2 } from 'react-icons/tb';
+import { FaSmileWink } from 'react-icons/fa';
+import { GiShoppingCart } from 'react-icons/gi';
+
+export const ModalWrapper = styled.div`
+  width: 730px;
+  border-radius: 10px;
+  height: 80%;
+  overflow: hidden;
+  background-color: white;
+`;
 
 export const Modal = styled.div`
   position: relative;
-  width: 750px;
-  border-radius: 10px;
+  width: 730px;
+  max-height: 100%;
   background-color: white;
   padding: 40px;
+  overflow-y: auto;
 `;
-export const BusketList = styled.ul``;
+export const BusketList = styled.ul`
+  padding: 0;
+`;
 export const BusketItem = styled.li`
   display: grid;
-  grid-template-columns: 200px 150px 40px 65px 65px 40px 50px 50px 50px;
+  grid-template-columns: 200px 110px 40px 65px 65px 35px 40px 40px 40px;
   align-self: center;
   &:not(:last-child) {
     border-bottom: 1px solid #dedcd7;
@@ -71,11 +83,23 @@ export const Price = styled.span`
   display: flex;
   align-self: center;
   margin: 0;
-
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 14px;
 `;
+
+export const CleanBusket = styled.p`
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 14px;
+  color: grey;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: black;
+  }
+`;
+
 export const PriceMeaning = styled.span`
   display: flex;
   align-self: center;
@@ -100,10 +124,18 @@ export const TitleIcon = styled(SlBasket)`
   height: 30px;
   margin-left: 10px;
 `;
-export const TitleIconSad = styled(TbMoodSad2)`
-  width: 40px;
-  height: 40px;
+
+export const EmptyBusketIcon = styled(GiShoppingCart)`
+  width: 200px;
+  height: 200px;
+  margin-top: 70px;
+  fill: green;
+`;
+export const TitleIconSmile = styled(FaSmileWink)`
+  width: 25px;
+  height: 25px;
   margin-left: 10px;
+  fill: #e5eb34;
 `;
 export const BusketBtn = styled.button`
   margin: 0 auto;

@@ -19,7 +19,10 @@ import {
   TitleBox,
   BusketBtn,
   DeleteIcon,
-  TitleIconSad,
+  TitleIconSmile,
+  ModalWrapper,
+  CleanBusket,
+  EmptyBusketIcon,
 } from './ModalBusket.styled';
 
 function ModalBusket() {
@@ -29,6 +32,7 @@ function ModalBusket() {
     CountPlus,
     CountMinus,
     handleDeleteBusketItem,
+    handleCleanBusket,
   } = useCont();
 
   const MainPrice = busketData.reduce(
@@ -56,54 +60,66 @@ function ModalBusket() {
 
   return (
     <Overlay onClick={handleBackdropClick}>
-      <Modal>
-        {busketData.length > 0 ? (
-          <TitleBox>
-            <Title>Кошик</Title>
-            <TitleIcon />
-          </TitleBox>
-        ) : (
-          <TitleBox>
-            <Title>Кошик пустий</Title>
-            <TitleIconSad />
-          </TitleBox>
-        )}
-        <BusketList>
-          {busketData.map(({ name, img, price, count }, i) => (
-            <BusketItem key={uuidv4()}>
-              <BusketName>{name}</BusketName>
-              <BusketImg src={img} />
-              <Price>Ціна:</Price>
-              <PriceMeaning> {price * count}₴</PriceMeaning>
-              <Price>Кількість:</Price>
-              <PriceMeaning>{count}</PriceMeaning>
+      <ModalWrapper>
+        <Modal>
+          {busketData.length > 0 ? (
+            <TitleBox>
+              <Title>Кошик</Title>
+              <TitleIcon />
+              <CleanBusket
+                onClick={handleCleanBusket}
+                style={{ marginLeft: '200px' }}
+              >
+                Очистити кошик
+              </CleanBusket>
+            </TitleBox>
+          ) : (
+            <TitleBox style={{ flexDirection: 'column' }}>
+              <Title>Кошик пустий,</Title>
+              <div style={{ display: 'flex' }}>
+                <Price>але це завжди можна виправити</Price>
+                <TitleIconSmile />
+              </div>
+              <EmptyBusketIcon />
+            </TitleBox>
+          )}
+          <BusketList>
+            {busketData.map(({ name, img, price, count }, i) => (
+              <BusketItem key={uuidv4()}>
+                <BusketName>{name}</BusketName>
+                <BusketImg src={img} />
+                <Price>Ціна:</Price>
+                <PriceMeaning> {price * count}₴</PriceMeaning>
+                <Price>Кількість:</Price>
+                <PriceMeaning>{count}</PriceMeaning>
 
-              <IconBtn
-                onClick={() => {
-                  CountMinus(i);
-                }}
-              >
-                <MinesIcon />
-              </IconBtn>
-              <IconBtn
-                onClick={() => {
-                  CountPlus(i);
-                }}
-              >
-                <PlusIcon />
-              </IconBtn>
-              <IconBtn onClick={() => handleDeleteBusketItem(i)}>
-                <DeleteIcon />
-              </IconBtn>
-            </BusketItem>
-          ))}
-        </BusketList>
-        <CloseIcon onClick={closeBusketModal} />
-        {busketData.length > 0 && (
-          <TotalPrice>Загальна сума: {MainPrice}₴ </TotalPrice>
-        )}
-        {busketData.length > 0 && <BusketBtn>Оформити замовлення</BusketBtn>}
-      </Modal>
+                <IconBtn
+                  onClick={() => {
+                    CountMinus(i);
+                  }}
+                >
+                  <MinesIcon />
+                </IconBtn>
+                <IconBtn
+                  onClick={() => {
+                    CountPlus(i);
+                  }}
+                >
+                  <PlusIcon />
+                </IconBtn>
+                <IconBtn onClick={() => handleDeleteBusketItem(i)}>
+                  <DeleteIcon />
+                </IconBtn>
+              </BusketItem>
+            ))}
+          </BusketList>
+          <CloseIcon onClick={closeBusketModal} />
+          {busketData.length > 0 && (
+            <TotalPrice>Загальна сума: {MainPrice}₴ </TotalPrice>
+          )}
+          {busketData.length > 0 && <BusketBtn>Оформити замовлення</BusketBtn>}
+        </Modal>
+      </ModalWrapper>
     </Overlay>
   );
 }

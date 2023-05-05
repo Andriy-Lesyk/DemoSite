@@ -2,10 +2,18 @@ import styled from '@emotion/styled';
 
 export const Modal = styled.div`
   position: relative;
-  width: 600px;
-  border-radius: 10px;
+  width: 700px;
+  height: 100%;
   background-color: white;
   padding: 40px;
+  overflow-y: auto;
+`;
+export const ModalWrapper = styled.div`
+  width: 700px;
+  border-radius: 10px;
+  height: 80%;
+  overflow: hidden;
+  background-color: white;
 `;
 export const Title = styled.h1`
   font-family: 'Roboto';

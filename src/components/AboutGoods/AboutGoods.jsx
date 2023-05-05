@@ -5,14 +5,13 @@ import ModalHeart from 'components/ModalHeart/ModalHeart';
 import { useCont } from 'components/Context/Context';
 import {
   Section,
-  SectionBtn,
+  // SectionBtn,
   SectionBox,
   Input,
   LikesBox,
   Heart,
   Basket,
-  Catalog,
-  Btn,
+  // Catalog,
   Count,
   CountHeart,
 } from './AboutGoods.styled';
@@ -26,24 +25,25 @@ function AboutGoods() {
     openHeartModal,
     showHeartModal,
     heartData,
+    handleCloseBurgerMenu,
   } = useCont();
 
   return (
     <Section>
       <Container>
         <SectionBox>
-          <SectionBtn>
+          {/* <SectionBtn>
             <Catalog />
             КАТАЛОГ ТОВАРІВ
-          </SectionBtn>
-          <Input placeholder="Я шукаю..." onChange={handleFilter} />
+          </SectionBtn> */}
+          <Input
+            placeholder="Я шукаю..."
+            onChange={handleFilter}
+            onClick={handleCloseBurgerMenu}
+          />
           <LikesBox>
-            <Btn onClick={openHeartModal}>
-              <Heart />
-            </Btn>
-            <Btn onClick={openBusketModal}>
-              <Basket />
-            </Btn>
+            <Heart onClick={openHeartModal} />
+            <Basket onClick={openBusketModal} />
             {TotalCount > 0 && <Count>{TotalCount}</Count>}
             {heartData.length > 0 && (
               <CountHeart>{heartData.length}</CountHeart>

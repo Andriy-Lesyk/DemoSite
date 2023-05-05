@@ -4,8 +4,12 @@ import { MdTrolley } from 'react-icons/md';
 import { GiAbstract050 } from 'react-icons/gi';
 
 export const Section = styled.section`
+  position: relative;
   background-color: #e5eb34;
   padding: 15px 0;
+  @media screen and (max-width: 768px) {
+    padding: 8px 0;
+  }
 `;
 export const SectionBtn = styled.button`
   @media screen and (max-width: 2000px) {
@@ -14,6 +18,7 @@ export const SectionBtn = styled.button`
     justify-content: center;
     width: 300px;
     height: 40px;
+    display: none;
     background-color: #6d6e6d;
     border-radius: 10px;
     border-color: #6d6e6d;
@@ -22,12 +27,15 @@ export const SectionBtn = styled.button`
     font-size: 18px;
     color: white;
   }
-  @media screen and (max-width: 1280px) {
-    width: 200px;
-    font-size: 15px;
-  }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 702px) {
+    display: flex;
+    position: absolute;
     margin-top: 10px;
+    width: 160px;
+    font-size: 14px;
+    height: 35px;
+    top: 21px;
+    left: 58px;
   }
 `;
 export const Input = styled.input`
@@ -46,8 +54,8 @@ export const Input = styled.input`
     margin-left: 10px;
   }
   @media screen and (max-width: 768px) {
-    max-width: 250px;
-    margin-left: 0;
+    width: 100%;
+    height: 35px;
   }
 `;
 export const LikesBox = styled.div`
@@ -55,7 +63,11 @@ export const LikesBox = styled.div`
   width: max-content;
   height: 40px;
   display: flex;
-  align-items: center;
+  //align-items: ;
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+    height: 30px;
+  }
 `;
 export const Heart = styled(AiFillHeart)`
   height: 25px;
@@ -66,6 +78,11 @@ export const Heart = styled(AiFillHeart)`
   &:focus {
     scale: 1.2;
   }
+  @media screen and (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
 `;
 export const Basket = styled(MdTrolley)`
   height: 25px;
@@ -75,12 +92,20 @@ export const Basket = styled(MdTrolley)`
   &:focus {
     scale: 1.2;
   }
+  @media screen and (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 export const Catalog = styled(GiAbstract050)`
   width: 20px;
   height: 20px;
   margin-right: 10px;
   fill: white;
+  @media screen and (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 export const Btn = styled.button`
   width: max-content;
@@ -94,7 +119,8 @@ export const SectionBox = styled.div`
     align-items: center;
   }
   @media screen and (max-width: 768px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: end;
   }
 `;
 export const Count = styled.div`

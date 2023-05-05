@@ -14,11 +14,20 @@ export const Overlay = styled.div`
   z-index: 1200;
 `;
 
+export const ModalWrapper = styled.div`
+  width: 630px;
+  border-radius: 10px;
+  height: 80%;
+  overflow: hidden;
+  background-color: white;
+`;
+
 export const Modal = styled.div`
   position: relative;
-  width: 550px;
-  border-radius: 10px;
+  width: 630px;
+  max-height: 100%;
   background-color: white;
+  overflow-y: auto;
   padding: 40px;
 `;
 
