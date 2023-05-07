@@ -19,7 +19,7 @@ export const SectionTop = styled.section`
 
 export const Input = styled.input`
   @media screen and (max-width: 2000px) {
-    width: 300px;
+    width: 100%;
     height: 40px;
     border: 2px solid #e5eb34;
     border-radius: 10px;

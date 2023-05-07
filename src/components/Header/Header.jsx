@@ -57,12 +57,6 @@ function Header() {
                 onClick={handleCloseBurgerMenu}
               />
 
-              {/* <InformBoxForTablet>
-              <Inform>КОНТАКТИ</Inform>
-              <Inform>ОПЛАТА І ДОСТАВКА</Inform>
-              <Inform>БЛОГ</Inform>
-            </InformBoxForTablet> */}
-
               <LikesBox>
                 <Heart onClick={openHeartModal} />
                 <Basket onClick={openBusketModal} />
