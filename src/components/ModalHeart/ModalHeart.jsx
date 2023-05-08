@@ -45,7 +45,6 @@ function ModalHeart() {
               <HearttItem key={uuidv4()}>
                 <HeartName>{name}</HeartName>
                 <HeartImg src={img} />
-                <HeartDescript>Характеристики</HeartDescript>
                 <DeleteIcon
                   onClick={() => handleDeleteHeartItem(i)}
                   style={{ display: 'flex', alignSelf: 'center' }}

@@ -19,9 +19,10 @@ function CardsBlock() {
   const {
     data,
     showCardModal,
+    handleToggleHeartItem,
     handleShowModalCard,
     handleAddBusketData,
-    handleAddHeartItem,
+    clickHeartData,
   } = useCont();
 
   return (
@@ -36,7 +37,10 @@ function CardsBlock() {
             <PriceHeartBox>
               <Price>Ціна:</Price>
               <PriceMeaning>{price}₴</PriceMeaning>
-              <HeartIcon onClick={() => handleAddHeartItem(i)} />
+              <HeartIcon
+                onClick={() => handleToggleHeartItem(i)}
+                style={{ fill: clickHeartData.includes(i) ? 'red' : '#6d6e6d' }}
+              />
             </PriceHeartBox>
 
             <CardBtn onClick={() => handleAddBusketData(i)}>

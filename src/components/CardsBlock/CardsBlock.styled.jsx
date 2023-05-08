@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { AiOutlineLike } from 'react-icons/ai';
+import { FaThumbsUp } from 'react-icons/fa';
 
 export const CardsBox = styled.ul`
   background-color: #f2f5f5;
@@ -107,7 +107,7 @@ export const Count = styled.div`
   right: -10px;
   top: -4px;
 `;
-export const HeartIcon = styled(AiOutlineLike)`
+export const HeartIcon = styled(FaThumbsUp)`
   width: 25px;
   height: 25px;
   fill: #6d6e6d;

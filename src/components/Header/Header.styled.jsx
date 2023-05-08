@@ -4,6 +4,12 @@ import { AiFillHeart } from 'react-icons/ai';
 import { MdTrolley } from 'react-icons/md';
 import { GiAbstract050 } from 'react-icons/gi';
 
+export const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 100;
+`;
+
 export const Head = styled.header`
   position: relative;
   display: block;

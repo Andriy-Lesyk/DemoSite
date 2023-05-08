@@ -6,12 +6,8 @@ import ModalHeart from 'components/ModalHeart/ModalHeart';
 import { useCont } from 'components/Context/Context';
 import {
   SectionTop,
-  Inform,
   SectionBox,
-  InformBox,
   Head,
-  BurgerMenuIcon,
-  InformBoxForTablet,
   Input,
   LikesBox,
   Heart,
@@ -21,12 +17,11 @@ import {
   SectionBtn,
   Catalog,
   Divs,
+  Wrapper,
 } from './Header.styled';
 
 function Header() {
   const {
-    showBurgerMenu,
-    handleShowBurgerMenu,
     handleFilter,
     handleCloseBurgerMenu,
     TotalCount,
@@ -39,39 +34,40 @@ function Header() {
   } = useCont();
 
   return (
-    <Head>
-      <SectionTop>
-        <Container>
-          <SectionBox>
-            <Divs>
-              <Logo />
-              <SectionBtn onClick={handleToggleSideBar}>
-                <Catalog />
-                КАТАЛОГ
-              </SectionBtn>
-            </Divs>
-            <Divs>
-              <Input
-                placeholder="Я шукаю..."
-                onChange={handleFilter}
-                onClick={handleCloseBurgerMenu}
-              />
-
-              <LikesBox>
-                <Heart onClick={openHeartModal} />
-                <Basket onClick={openBusketModal} />
-                {TotalCount > 0 && <Count>{TotalCount}</Count>}
-                {heartData.length > 0 && (
-                  <CountHeart>{heartData.length}</CountHeart>
-                )}
-              </LikesBox>
-            </Divs>
-          </SectionBox>
-          {showBusketModal && <ModalBusket />}
-          {showHeartModal && <ModalHeart />}
-        </Container>
-      </SectionTop>
-    </Head>
+    <Wrapper>
+      <Head>
+        <SectionTop>
+          <Container>
+            <SectionBox>
+              <Divs>
+                <Logo />
+                <SectionBtn onClick={handleToggleSideBar}>
+                  <Catalog />
+                  КАТАЛОГ
+                </SectionBtn>
+              </Divs>
+              <Divs>
+                <Input
+                  placeholder="Я шукаю..."
+                  onChange={handleFilter}
+                  onClick={handleCloseBurgerMenu}
+                />
+                <LikesBox>
+                  <Heart onClick={openHeartModal} />
+                  <Basket onClick={openBusketModal} />
+                  {TotalCount > 0 && <Count>{TotalCount}</Count>}
+                  {heartData.length > 0 && (
+                    <CountHeart>{heartData.length}</CountHeart>
+                  )}
+                </LikesBox>
+              </Divs>
+            </SectionBox>
+            {showBusketModal && <ModalBusket />}
+            {showHeartModal && <ModalHeart />}
+          </Container>
+        </SectionTop>
+      </Head>
+    </Wrapper>
   );
 }
 

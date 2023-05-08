@@ -15,9 +15,9 @@ export const ContextProvider = ({ children }) => {
   const [showBusketModal, setShowBusketModal] = useState(false);
   const [heartData, setHeartData] = useState([]);
   const [showHeartModal, setShowHeartModal] = useState(false);
-  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
   const [clickItem, setClickItem] = useState(null);
   const [showSideBar, setShowSideBar] = useState(false);
+  const [clickHeartData, setClickHeartData] = useState([]);
   const [arrTypesOfGoods, setArrTypesOfGoods] = useState([
     'Портативні зарядні пристрої',
     'Інвертори',
@@ -28,9 +28,6 @@ export const ContextProvider = ({ children }) => {
   const handleToggleSideBar = () => setShowSideBar(!showSideBar);
 
   const handleCloseSideBar = () => setShowSideBar(false);
-
-  const handleShowBurgerMenu = () => setShowBurgerMenu(!showBurgerMenu);
-  const handleCloseBurgerMenu = () => setShowBurgerMenu(false);
 
   const openCardModal = () => setShowCardModal(true);
   const closeCardModal = () => setShowCardModal(false);
@@ -95,15 +92,38 @@ export const ContextProvider = ({ children }) => {
       setBusketData([]);
     }
   };
-  const handleAddHeartItem = i => {
+  const handleToggleHeartItem = i => {
     if (!heartData.includes(dat[i])) {
       heartData.push(dat[i]);
       setHeartData([...heartData]);
+      clickHeartData.push(i);
+      setClickHeartData([...clickHeartData]);
+    } else {
+      if (heartData.length === 1) {
+        let arr = heartData;
+        arr.splice(0, 1);
+        setHeartData([...arr]);
+      } else {
+        const del = heartData.filter(
+          x => x !== heartData[heartData.indexOf(dat[i])]
+        );
+        setHeartData(del);
+      }
+      if (clickHeartData.length === 1) {
+        let arr = clickHeartData;
+        arr.splice(0, 1);
+        setClickHeartData([...arr]);
+      } else {
+        const delet = clickHeartData.filter(x => x !== i);
+        setClickHeartData(delet);
+      }
     }
   };
 
   const handleDeleteHeartItem = i => {
     const del = heartData.filter(x => x !== heartData[i]);
+    let arr = clickHeartData.filter(x => x !== dat.indexOf(heartData[i]));
+    setClickHeartData(arr);
     setHeartData(del);
   };
 
@@ -150,12 +170,9 @@ export const ContextProvider = ({ children }) => {
         openHeartModal,
         closeHeartModal,
         showHeartModal,
-        handleAddHeartItem,
+        handleToggleHeartItem,
         heartData,
         handleDeleteHeartItem,
-        showBurgerMenu,
-        handleShowBurgerMenu,
-        handleCloseBurgerMenu,
         handleCleanBusket,
         handleFilterByType,
         handleDenyFilter,
@@ -165,6 +182,7 @@ export const ContextProvider = ({ children }) => {
         handleFilterByTypeConst,
         handleDenyFilterConst,
         arrTypesOfGoods,
+        clickHeartData,
       }}
     >
       {children}

@@ -4,7 +4,7 @@ import { GrMail } from 'react-icons/gr';
 
 export const Div = styled.div`
   position: absolute;
-  z-index: 100;
+  z-index: 90;
   height: 100%;
   margin: 0;
   width: 300px;

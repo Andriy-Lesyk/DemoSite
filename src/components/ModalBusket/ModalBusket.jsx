@@ -64,12 +64,11 @@ function ModalBusket() {
         <Modal>
           {busketData.length > 0 ? (
             <TitleBox>
-              <Title>Кошик</Title>
-              <TitleIcon />
-              <CleanBusket
-                onClick={handleCleanBusket}
-                style={{ marginLeft: '200px' }}
-              >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Title>Кошик</Title>
+                <TitleIcon />
+              </div>
+              <CleanBusket onClick={handleCleanBusket}>
                 Очистити кошик
               </CleanBusket>
             </TitleBox>
