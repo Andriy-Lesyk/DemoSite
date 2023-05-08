@@ -24,6 +24,7 @@ export const ContextProvider = ({ children }) => {
     'Портативні електростанції',
     'Контролери',
   ]);
+  console.log(setArrTypesOfGoods);
 
   const handleToggleSideBar = () => setShowSideBar(!showSideBar);
 

@@ -10,7 +10,6 @@ import {
   HearttItem,
   HeartName,
   HeartImg,
-  HeartDescript,
   ModalWrapper,
 } from './ModalHeart.styled';
 

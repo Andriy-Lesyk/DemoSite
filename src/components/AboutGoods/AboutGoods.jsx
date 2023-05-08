@@ -5,13 +5,11 @@ import ModalHeart from 'components/ModalHeart/ModalHeart';
 import { useCont } from 'components/Context/Context';
 import {
   Section,
-  // SectionBtn,
   SectionBox,
   Input,
   LikesBox,
   Heart,
   Basket,
-  // Catalog,
   Count,
   CountHeart,
 } from './AboutGoods.styled';
@@ -32,10 +30,6 @@ function AboutGoods() {
     <Section>
       <Container>
         <SectionBox>
-          {/* <SectionBtn>
-            <Catalog />
-            КАТАЛОГ ТОВАРІВ
-          </SectionBtn> */}
           <Input
             placeholder="Я шукаю..."
             onChange={handleFilter}

@@ -12,7 +12,6 @@ import {
   HeartIcon,
   PriceHeartBox,
   ImgBox,
-  Link,
 } from './CardsBlock.styled';
 
 function CardsBlock() {
